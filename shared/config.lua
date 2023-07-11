@@ -16,7 +16,7 @@ cfg = {
             name = "Police Station",
             frequency = 1,
             userLimit = 1,
-            jobs = {"police"}
+            jobs = {"police", "sherrif"} -- must be a table 
         },
         {
             name = "Police Station",
