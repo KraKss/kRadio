@@ -150,7 +150,7 @@ function Radio:drawMainMenu(xPlayer)
                 PMA:setRadioVolume(self.volume)
             end, onSelected = function()
                 local vol <const> = KeyboardInput(self:translate("volumeTextEntry"), "", 9)
-                if tonumber(vol) then
+                if (tonumber(vol)) then
                     self.volume = ((tonumber(vol) <= 100) and (tonumber(vol) >= 0)) and tonumber(vol) or self.volume
                     PMA:setRadioVolume(self.volume)
                 end
@@ -257,9 +257,10 @@ function Radio:openMenu()
         return
     end
 
-    self:createMenu()
-
-    self:fetchPlayersInChannel()
+    if (not self.mainMenu) then
+        self:createMenu()
+        self:fetchPlayersInChannel()
+    end
 
     RageUI.Visible(self.mainMenu, true)
     self.displayed = true
