@@ -16,7 +16,7 @@ RegisterNetEvent("KraKss:radio:checkItemResponse", function(hasItem)
     end
 end)
 
-RegisterCommand('radio', function()
+RegisterCommand("radio", function()
     if (cfg.sql.itemNeeded) then
         TriggerServerEvent("KraKss:radio:checkItem")
     else
@@ -24,4 +24,4 @@ RegisterCommand('radio', function()
     end
 end)
 
-RegisterKeyMapping('radio', 'Ouvrir la radio', 'keyboard', 'F2')
+RegisterKeyMapping("radio", "Ouvrir la radio", "keyboard", cfg.menu.openKeybind)
